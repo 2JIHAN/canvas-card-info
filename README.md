@@ -1,31 +1,31 @@
 # Canvas Card Info
 
-Obsidian 캔버스에서 카드를 **우클릭**하면 컨텍스트 메뉴에 **"카드 정보 복사"** 항목이 추가됩니다. 클릭하면 해당 카드의 정보가 클립보드에 복사됩니다.
+Right-click any card in an Obsidian **Canvas** and choose **"Copy card info"** to copy that card's data to your clipboard.
 
-## 복사되는 정보
+## What gets copied
 
-| 카드 종류 | 복사 내용 |
-|-----------|-----------|
-| 텍스트 카드 | id, 내용, 위치(x,y), 크기(w,h), 색상 |
-| 파일 카드 | id, 파일 경로, subpath, 위치, 크기, 색상 |
-| 링크 카드 | id, URL, 위치, 크기, 색상 |
-| 그룹 | id, 라벨, 위치, 크기, 색상 |
+| Card type | Copied fields |
+|-----------|---------------|
+| Text | id, text, position (x, y), size (w, h), color |
+| File | id, file path, subpath, position, size, color |
+| Link | id, URL, position, size, color |
+| Group | id, label, position, size, color |
 
-- 여러 카드를 선택한 뒤 우클릭하면 선택한 카드 전체가 한 번에 복사됩니다.
-- 설정에서 복사 형식을 **읽기 좋은 텍스트 / 원본 JSON / 둘 다** 중에 고를 수 있습니다.
+- Select multiple cards, then right-click, to copy them all at once.
+- In **Settings → Canvas Card Info**, choose the copy format — **readable text**, **raw JSON**, or **both** — and toggle the copy notice.
 
-## 설치 (수동)
+## Install (manual)
 
-1. 이 폴더(`canvas-card-info`)를 `<vault>/.obsidian/plugins/`에 복사합니다.
-2. Obsidian 설정 → 커뮤니티 플러그인 목록에서 활성화합니다.
+1. Copy this folder (`canvas-card-info`) into `<your vault>/.obsidian/plugins/`.
+2. In Obsidian, open **Settings → Community plugins** and enable **Canvas Card Info**.
 
-## 개발
+## Development
 
 ```bash
 npm install
-npm run build   # main.js 생성
+npm run build   # produces main.js
 ```
 
-## 라이선스
+## License
 
 MIT
