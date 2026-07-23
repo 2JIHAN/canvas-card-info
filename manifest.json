@@ -1,0 +1,10 @@
+{
+  "id": "canvas-card-info",
+  "name": "Canvas Card Info",
+  "version": "1.0.0",
+  "minAppVersion": "1.1.0",
+  "description": "Right-click a canvas card to copy its information (text/file/link/group, id, position, size, color) to the clipboard.",
+  "author": "2JIHAN",
+  "authorUrl": "https://github.com/2JIHAN",
+  "isDesktopOnly": false
+}

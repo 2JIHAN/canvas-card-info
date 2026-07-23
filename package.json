@@ -1,0 +1,16 @@
+{
+  "name": "canvas-card-info",
+  "version": "1.0.0",
+  "description": "Copy canvas card info via right-click menu in Obsidian.",
+  "main": "main.js",
+  "scripts": {
+    "build": "node esbuild.config.mjs"
+  },
+  "keywords": ["obsidian", "canvas", "plugin"],
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "obsidian": "latest",
+    "typescript": "^5.4.0"
+  }
+}
