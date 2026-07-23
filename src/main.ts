@@ -1,4 +1,4 @@
-import { Notice, Plugin, Menu, TFile, normalizePath } from "obsidian";
+import { Notice, Plugin, Menu, TFile } from "obsidian";
 
 interface CanvasCardInfoSettings {
   format: "pretty" | "json" | "both";
@@ -108,7 +108,7 @@ export default class CanvasCardInfoPlugin extends Plugin {
     if (typeof node.getData === "function") {
       try {
         return node.getData();
-      } catch (e) {
+      } catch {
         /* fall through */
       }
     }
@@ -141,7 +141,7 @@ export default class CanvasCardInfoPlugin extends Plugin {
   private filePathOf(file: TFile | string | undefined): string | undefined {
     if (file == null) return undefined;
     if (typeof file === "string") return file;
-    return (file as TFile).path;
+    return file.path;
   }
 
   private prettyInfo(node: CanvasNodeLike, data: Record<string, unknown>): string {
@@ -191,7 +191,8 @@ export default class CanvasCardInfoPlugin extends Plugin {
   }
 
   async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    const stored = (await this.loadData()) as Partial<CanvasCardInfoSettings> | null;
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, stored);
   }
 
   async saveSettings() {
@@ -199,13 +200,13 @@ export default class CanvasCardInfoPlugin extends Plugin {
   }
 }
 
-import { PluginSettingTab, App, Setting } from "obsidian";
+import { PluginSettingTab, Setting } from "obsidian";
 
 class CanvasCardInfoSettingTab extends PluginSettingTab {
   plugin: CanvasCardInfoPlugin;
 
   constructor(plugin: CanvasCardInfoPlugin) {
-    super(plugin.app as App, plugin);
+    super(plugin.app, plugin);
     this.plugin = plugin;
   }
 
